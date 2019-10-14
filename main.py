@@ -84,7 +84,7 @@ def all_source(fi, source):
                 new.write(bindata)
                 with open('PYZ-00.pyz_extracted/'+i, 'rb') as old:
                     new.write(binascii.unhexlify(binascii.hexlify(old.read())[24:]))
-            with open('../'+file.replace('.exe', '')+source+'/libs/'+i.replace('.pyc', '.py'), "w") as fileobj:
+            with open('../'+file.replace('.exe', '')+source+'/libs/'+i.replace('.pyc', '.py'), "w", encoding='utf-8') as fileobj:
                 uncompyle6.uncompyle_file('../'+file.replace('.exe', '')+source+'/libs/'+i, fileobj)
             os.remove('../'+file.replace('.exe', '')+source+'/libs/'+i)
             print('[+] Successfully decompiling {}'.format(i))
@@ -98,7 +98,7 @@ def all_source(fi, source):
                 new.write(bindata)
                 with open('PYZ-00.pyz_extracted/'+i, 'rb') as old:
                     new.write(binascii.unhexlify(binascii.hexlify(old.read())[24:]))
-            with open('../'+source+'/libs/'+i.replace('.pyc', '.py'), "w") as fileobj:
+            with open('../'+source+'/libs/'+i.replace('.pyc', '.py'), "w", encoding='utf-8') as fileobj:
                 uncompyle6.uncompyle_file('../'+source+'/libs/'+i, fileobj)
             os.remove('../'+source+'/libs/'+i)
             print('[+] Successfully decompiling {}'.format(i))
